@@ -1,0 +1,42 @@
+// RWD 斷點
+$breakpoints: (
+  desktop: 1280px,
+  tablet: 992px,
+  mobileH: 768px,
+  mobile: 576px,
+);
+@mixin max-to($bp) {
+  @if map-has-key($breakpoints, $bp) {
+    // 獲取斷點的原始值
+    $max-width: map-get($breakpoints, $bp);
+
+    // 將值減去 1px
+    $adjusted-width: $max-width - 1px;
+
+    @media (max-width: $adjusted-width) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$bp}`. "
+      + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+// 用法：
+// @include max-to(tablet) {
+//     ~ 0~991px 的樣式內容 ~
+// }
+
+@mixin min-to($bp) {
+  @if map-has-key($breakpoints, $bp) {
+    @media (max-width: map-get($breakpoints, $bp)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$bp}`. "
+      +"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+// 用法：
+// @include min-to(tablet) {
+//     ~ 992px(含)以上的樣式內容 ~
+// }

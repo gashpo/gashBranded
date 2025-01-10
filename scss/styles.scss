@@ -1,0 +1,15 @@
+@import "reset";
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Varela&display=swap");
+* {
+  font-family: "noto sans tc", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@import "variable/variable";
+@import "variable/components";
+@import "variable/swiper";
+@import "layout";

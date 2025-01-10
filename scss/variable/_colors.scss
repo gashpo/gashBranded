@@ -1,0 +1,141 @@
+// 色彩定義
+$colors: ();
+
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+// 灰階
+$colors: map-merge(
+  $colors,
+  (
+    gray-0: #ffffff,
+    gray-50: #f9f9f9,
+    gray-100: #e5e5e5,
+    gray-150: #d7d7d7,
+    gray-200: #cacaca,
+    gray-300: #b0b0b0,
+    gray-400: #959595,
+    gray-500: #7b7b7b,
+    gray-600: #626262,
+    gray-700: #4c4c4c,
+    gray-800: #313131,
+    gray-850: #222222,
+    gray-900: #191919,
+    gray-1000: #000000,
+  )
+);
+
+// 主色系
+$colors: map-merge(
+  $colors,
+  (
+    primary-50: #fdf2f5,
+    primary-100: #fad5e1,
+    primary-150: #f8c0d3,
+    primary-200: #f5abc4,
+    primary-300: #f182a6,
+    primary-400: #ec5889,
+    primary-500: #e72e6b,
+    primary-600: #d62660,
+    primary-700: #8b1c40,
+    primary-800: #5c122b,
+    primary-850: #450e20,
+    primary-900: #2e0915,
+  )
+);
+
+// 狀態色 - 成功
+$colors: map-merge(
+  $colors,
+  (
+    success-50: #e9f8f2,
+    success-100: #d4f2e5,
+    success-150: #beebd8,
+    success-200: #a8e4cb,
+    success-300: #7dd7b1,
+    success-400: #51c997,
+    success-500: #26bc7d,
+    success-600: #1e9664,
+    success-700: #17714b,
+    success-800: #0f4b32,
+    success-850: #0b3826,
+    success-900: #082619,
+  )
+);
+
+// 狀態色 - 警告
+$colors: map-merge(
+  $colors,
+  (
+    warning-50: #fff5e5,
+    warning-100: #ffebcc,
+    warning-150: #ffe0b3,
+    warning-200: #ffd699,
+    warning-300: #ffc266,
+    warning-400: #ffad33,
+    warning-500: #ff9900,
+    warning-600: #cc7a00,
+    warning-700: #995c00,
+    warning-800: #663d00,
+    warning-850: #4d2e00,
+    warning-900: #331f00,
+  )
+);
+
+// 狀態色 - 錯誤
+$colors: map-merge(
+  $colors,
+  (
+    error-50: #fff2ef,
+    error-100: #f3d7d0,
+    error-150: #ecc2b9,
+    error-200: #e6aea1,
+    error-300: #da8673,
+    error-400: #cd5d44,
+    error-500: #c13515,
+    error-600: #9a2a11,
+    error-700: #74200d,
+    error-800: #4d1508,
+    error-850: #3a1006,
+    error-900: #270b04,
+  )
+);
+
+// 輔色系
+$colors: map-merge(
+  $colors,
+  (
+    orange-50: #ffefef,
+    orange-100: #ffdede,
+    orange-150: #ffcece,
+    orange-200: #ffbdbd,
+    orange-300: #ff9d9d,
+    orange-400: #ff7c7c,
+    orange-500: #ff5b5b,
+    orange-600: #d64949,
+    orange-700: #ad3737,
+    orange-800: #842424,
+    orange-850: #701b1b,
+    orange-900: #5b1212,
+  )
+);
+
+// 輔色系
+$colors: map-merge(
+  $colors,
+  (
+    purple-50: #f5eefc,
+    purple-100: #ecddf9,
+    purple-150: #e3ccf5,
+    purple-200: #d9bbf2,
+    purple-300: #c698ec,
+    purple-400: #b376e5,
+    purple-500: #a054df,
+    purple-600: #8144b4,
+    purple-700: #623389,
+    purple-800: #44235f,
+    purple-850: #341b49,
+    purple-900: #251234,
+  )
+);

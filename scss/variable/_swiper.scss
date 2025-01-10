@@ -1,0 +1,32 @@
+.swiper-button-next, .swiper-button-prev {
+    &:after {
+        content: '';
+    }
+
+    border-radius: px(48);
+    height: px(60);
+    width: px(60);
+    background-color: rgba(color(gray-0),0.7);
+    color: color(gray-850);
+    @include transition(background-color);
+
+    @include hover {
+        background-color: rgba(color(gray-0),0.8);
+    }
+}
+
+.swiper-button-prev {
+    left: px(40);
+
+    @include max-to(tablet) {
+        left: px(20);
+    }
+}
+
+.swiper-button-next {
+    right: px(40);
+
+    @include max-to(tablet) {
+        right: px(20);
+    }
+}

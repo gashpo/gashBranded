@@ -1,0 +1,160 @@
+// 尺寸
+@function px($key) {
+  @return calc($key / 16 * 1rem);
+}
+
+// 字重
+$font-weight: (
+  "Light": 300,
+  "Regular": 400,
+  "Medium": 500,
+  "Bold": 700,
+);
+@function fontW($key) {
+  @return map-get($font-weight, $key);
+}
+
+// 字體定義
+$font-family: (
+  desktop: (
+    h1: (
+      font-size: px(50),
+      font-weight: fontW(Bold),
+    ),
+    h2: (
+      font-size: px(40),
+      font-weight: fontW(Medium),
+    ),
+    h3: (
+      font-size: px(32),
+      font-weight: fontW(Medium),
+    ),
+    h4: (
+      font-size: px(28),
+      font-weight: fontW(Medium),
+    ),
+    h5: (
+      font-size: px(24),
+      font-weight: fontW(Medium),
+    ),
+    h6: (
+      font-size: px(20),
+      font-weight: fontW(Medium),
+    ),
+    body1: (
+      font-size: px(16),
+      font-weight: fontW(Regular),
+    ),
+    body2: (
+      font-size: px(14),
+      font-weight: fontW(Regular),
+    ),
+    caption: (
+      font-size: px(12),
+      font-weight: fontW(Medium),
+    ),
+  ),
+  tablet: (
+    h1: (
+      font-size: px(32),
+      font-weight: fontW(Bold),
+    ),
+    h2: (
+      font-size: px(28),
+      font-weight: fontW(Bold),
+    ),
+    h3: (
+      font-size: px(24),
+      font-weight: fontW(Bold),
+    ),
+    h4: (
+      font-size: px(20),
+      font-weight: fontW(Bold),
+    ),
+    h5: (
+      font-size: px(18),
+      font-weight: fontW(Bold),
+    ),
+    h6: (
+      font-size: px(16),
+      font-weight: fontW(Bold),
+    ),
+    body1: (
+      font-size: px(16),
+      font-weight: fontW(Regular),
+    ),
+    body2: (
+      font-size: px(14),
+      font-weight: fontW(Regular),
+    ),
+    caption: (
+      font-size: px(12),
+      font-weight: fontW(Regular),
+    ),
+  ),
+);
+
+@function fontF($key, $device: desktop, $property: font-size) {
+  @if map-has-key($font-family, $device) {
+    $device-map: map-get($font-family, $device);
+    @if map-has-key($device-map, $key) {
+      $style-map: map-get($device-map, $key);
+      @if map-has-key($style-map, $property) {
+        @return map-get($style-map, $property);
+      } @else {
+        @error "The property `#{$property}` does not exist for `#{$key}` in the `#{$device}` map.";
+      }
+    } @else {
+      @error "The key `#{$key}` does not exist in the `#{$device}` map.";
+    }
+  } @else {
+    @error "The device `#{$device}` does not exist in the `$font-family` map.";
+  }
+}
+
+@mixin fontRWD($element) {
+  // 預設讀取 desktop 的樣式
+  font-size: fontF($element);
+  font-weight: fontF($element, desktop, font-weight);
+  line-height: 1.5;
+
+  // 加入其他斷點的樣式
+  @include max-to(tablet) {
+    font-size: fontF($element, tablet);
+    font-weight: fontF($element, tablet, font-weight);
+    line-height: 1.5;
+  }
+}
+
+// 用法
+p,
+span {
+  @include fontRWD(body1);
+  color: color(gray-600);
+}
+h1 {
+  @include fontRWD(h1);
+  margin-bottom: px(12);
+  color: color(gray-850);
+}
+h2 {
+  @include fontRWD(h2);
+  margin-bottom: px(12);
+  color: color(gray-850);
+}
+h3 {
+  @include fontRWD(h3);
+  margin-bottom: px(12);
+}
+h4 {
+  @include fontRWD(h4);
+  margin-bottom: px(12);
+}
+h5 {
+  @include fontRWD(h5);
+  margin-bottom: px(12);
+}
+h6 {
+  @include fontRWD(h6);
+  margin-bottom: px(12);
+}
