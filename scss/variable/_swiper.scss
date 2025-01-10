@@ -4,14 +4,19 @@
     }
 
     border-radius: px(48);
-    height: px(60);
     width: px(60);
+    height: px(60);
     background-color: rgba(color(gray-0),0.7);
     color: color(gray-850);
     @include transition(background-color);
 
     @include hover {
         background-color: rgba(color(gray-0),0.8);
+    }
+
+    @include max-to(tablet) {
+        width: px(40);
+        height: px(40);
     }
 }
 

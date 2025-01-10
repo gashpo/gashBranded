@@ -5,6 +5,10 @@
   @include max-to(desktop) {
     max-width: calc(100svw - px(40));
   }
+
+  @include max-to(mobile) {
+    max-width: calc(100svw - px(48));
+  }
 }
 
 #keyvision {
@@ -102,6 +106,14 @@
       h1 {
         font-size: px(56);
       }
+
+      p {
+        padding: 0 px(20);
+
+        br {
+          display: none;
+        }
+      }
     }
 
     button {
@@ -136,16 +148,6 @@
 
   @include max-to(mobile) {
     animation: none;
-
-    .title {
-      p {
-        padding: px(20);
-      }
-
-      br {
-        display: none;
-      }
-    }
 
     button {
       bottom: px(24);
@@ -233,6 +235,10 @@
         width: px(168);
       }
     }
+  }
+
+  @include max-to(mobile) {
+    display: none;
   }
 }
 
@@ -421,6 +427,28 @@
       }
     }
   }
+  
+  @include max-to(mobile) {
+    .title {
+      flex-direction: column;
+      gap: px(16);
+    }
+
+    .content {
+      overflow-x: scroll;
+      height: px(420);
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .thumbs {
+        display: none;
+        padding: px(16);
+        gap: px(20);
+      }
+    }
+  }
 }
 
 #service {
@@ -491,6 +519,22 @@
       }
     }
   }
+
+  @include max-to(mobile) {
+    .intro {
+      flex-direction: column;
+      gap: px(12);
+
+      .describe {
+        padding-bottom: 0;
+      }
+
+
+    &.reverse {
+      flex-direction: column;
+    }
+    }
+  }
 }
 
 #products {
@@ -533,6 +577,13 @@
       }
     }
   }
+
+  @include max-to(mobile) {
+    .title {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
 }
 
 #contact {
@@ -549,6 +600,11 @@
 
   button {
     margin: px(0) auto;
+  }
+
+  
+  @include max-to(mobile) {
+    padding: px(40) px(20);
   }
 }
 
@@ -574,8 +630,33 @@ footer {
 
   .certification {
     text-align: right;
-  }
-}
 
-@include max-to(tablet) {
+    img {
+      width: px(40);
+      height: px(40);
+      margin-left: px(16);
+    }
+  }
+
+  @include max-to(tablet) {
+    flex-wrap: wrap;
+    padding: px(20) 0 px(60);
+
+    copyright {
+      flex: 100%;
+      text-align: center;
+      margin-bottom: px(28);
+    }
+
+    .footer_logo {
+      flex: auto;
+      max-width: max-content;
+    }
+
+    .certification {
+      img {
+        margin-left: px(4);
+      }
+    }
+  }
 }

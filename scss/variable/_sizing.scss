@@ -56,15 +56,15 @@ $font-family: (
   ),
   tablet: (
     h1: (
-      font-size: px(32),
-      font-weight: fontW(Bold),
-    ),
-    h2: (
       font-size: px(28),
       font-weight: fontW(Bold),
     ),
-    h3: (
+    h2: (
       font-size: px(24),
+      font-weight: fontW(Bold),
+    ),
+    h3: (
+      font-size: px(22),
       font-weight: fontW(Bold),
     ),
     h4: (
