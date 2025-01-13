@@ -787,13 +787,14 @@ button.btn-white, .button.btn-white {
     overflow-x: scroll;
     height: 26.25rem;
   }
+  #history .content .timeline {
+    transform: scale(0.8);
+  }
   #history .content::-webkit-scrollbar {
     display: none;
   }
   #history .content .thumbs {
     display: none;
-    padding: 1rem;
-    gap: 1.25rem;
   }
 }
 

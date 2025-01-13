@@ -533,14 +533,16 @@
       overflow-x: scroll;
       height: px(420);
 
+      .timeline {
+        transform: scale(0.8);
+      }
+
       &::-webkit-scrollbar {
         display: none;
       }
 
       .thumbs {
         display: none;
-        padding: px(16);
-        gap: px(20);
       }
     }
   }
