@@ -104,11 +104,12 @@
       transform: translate(0, 0);
 
       h1 {
-        font-size: px(56);
+        font-size: px(52);
       }
 
       p {
         padding: 0 px(20);
+        font-size: fontF(body1);
 
         br {
           display: none;
@@ -393,6 +394,11 @@
           background-color: rgba(color(gray-850), 0.5);
         }
 
+        &::after {
+          content: '';
+          height: px(2);
+        }
+
         h5 {
           position: absolute;
           top: calc(100% + px(18));
@@ -434,6 +440,10 @@
           h5 {
             opacity: 1;
           }
+        }
+
+        &.y2000 {
+          margin-right: px(500);
         }
       }
     }
@@ -526,7 +536,7 @@
   @include max-to(mobile) {
     .title {
       flex-direction: column;
-      gap: px(16);
+      gap: px(0);
     }
 
     .content {
