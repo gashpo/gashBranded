@@ -235,6 +235,10 @@
         width: px(168);
       }
     }
+
+    @media (orientation: landscape) {
+      display: none;
+    }
   }
 
   @include max-to(mobile) {

@@ -529,6 +529,11 @@ button.btn-white, .button.btn-white {
     width: 10.5rem;
   }
 }
+@media (max-width: 991px) and (orientation: landscape) {
+  #sticky {
+    display: none;
+  }
+}
 @media (max-width: 575px) {
   #sticky {
     display: none;

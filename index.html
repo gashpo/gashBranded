@@ -62,19 +62,36 @@
             <h2>我們不只是一個支付平台<br>更是夢想的放大器</h2>
             <p>擁有網銀國際與遊戲橘子的支持，將整合兩大集團資源，創造一個更開放便利的數位娛樂生態系，降低消費門檻，讓娛樂更容易觸手可及。</p>
         </div>
-        <!-- <div class="swiper timelineSwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="images/history01.png"></div>
-              <div class="swiper-slide"><img src="images/history02.png"></div>
-              <div class="swiper-slide"><img src="images/history03.png"></div>
-              <div class="swiper-slide"><img src="images/history04.png"></div>
-              <div class="swiper-slide"><img src="images/history05.png"></div>
-              <div class="swiper-slide"><img src="images/history06.png"></div>
-            </div>
-            <ul class="swiper-pagination"></ul>
-        </div> -->
         <div class="content">
             <div class="timeline"><img src="images/history.png"></div>
+            <ul class="thumbs">
+                <li class="active">
+                    <div><span></span></div>
+                    2000
+                </li>
+                <li>
+                    <div><span></span></div>
+                    2002
+                </li>
+                <li>
+                    <div><span></span></div>
+                    2005
+                </li>
+                <li>
+                    <div><span></span></div>
+                    2011
+                </li>
+                <li>
+                    <div><span></span></div>
+                    2015
+                </li>
+                <li>
+                    <div><span></span></div>
+                    2024
+                </li>
+            </ul>
+        </div>
+        <div class="card">
             <ul class="thumbs">
                 <li class="active">
                     <div><span></span></div>
@@ -218,25 +235,31 @@
     
     <script>
         $(document).ready(function () {
-            // section 區塊連動 sticky active 狀態
+            // keyvision 下滑按鈕
             $('button').click(function () {
-                // 獲取 #history 的 offset 顶部位置
-                var offsetTop = $('#history').offset().top - 100;
+                // 獲取 #history 的 offset 頂部位置
+                const offsetTop = $('#history').offset().top;
+                const windowWidth = window.innerWidth;
 
                 // 使用 animate 平滑移動到 #history 的位置
-                $('html, body').animate(
-                    {
-                    scrollTop: offsetTop,
-                    },
-                    500 // 動畫時間（500ms，可以根據需求調整）
-                );
+                if (windowWidth < 992) {
+                    $('html, body').animate(
+                        { scrollTop: offsetTop, }, 500 // 動畫時間（500ms，可以根據需求調整）
+                    );
+                } else {
+                    $('html, body').animate(
+                        { scrollTop: offsetTop - 100, }, 500 // 動畫時間（500ms，可以根據需求調整）
+                    );
+                }
             });
+
+            // section 區塊連動 sticky active 狀態
             $('#sticky .content li').click(function () {
                 // 獲取按鈕的 data-target 值
-                var target = $(this).data('target');
+                const target = $(this).data('target');
 
                 // 獲取目標 section 的 offset 顶部位置
-                var offsetTop = $(target).offset().top - 100;
+                const offsetTop = $(target).offset().top - 100;
 
                 // 使用 animate 平滑滑動到指定位置
                 $('html, body').animate(
@@ -296,11 +319,11 @@
         });
 
         $(window).on('scroll', function () {
-            var scrollTop = $(window).scrollTop();
-            var windowHeight = $(window).height();
-            var documentHeight = $(document).height();
-            var headerHeight = $('#sticky').outerHeight(); // 如果 header 固定在頁面頂部，考慮其高度
-            var sections = ['#history', '#service', '#products', '#contact'];
+            const scrollTop = $(window).scrollTop();
+            const windowHeight = $(window).height();
+            const documentHeight = $(document).height();
+            const headerHeight = $('#sticky').outerHeight(); // 如果 header 固定在頁面頂部，考慮其高度
+            const sections = ['#history', '#service', '#products', '#contact'];
 
             // 判斷是否滾動到底部
             if (scrollTop + windowHeight >= documentHeight) {
@@ -311,11 +334,11 @@
 
             // 遍歷每個 section 的 offset
             sections.forEach(function (section, index) {
-                var $section = $(section);
-                var nextSection = sections[index + 1] ? $(sections[index + 1]) : null;
+                const $section = $(section);
+                const nextSection = sections[index + 1] ? $(sections[index + 1]) : null;
 
-                var sectionTop = $section.offset().top - headerHeight - 60;
-                var sectionBottom = nextSection
+                const sectionTop = $section.offset().top - headerHeight - 60;
+                const sectionBottom = nextSection
                     ? nextSection.offset().top - headerHeight - 60
                     : $(document).height();
 
