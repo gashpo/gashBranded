@@ -91,6 +91,75 @@
                 </li>
             </ul>
         </div>
+        <!-- <div class="content_new">
+            <ul class="timeline">
+                <li class="y2000 active">
+                    <h5>2000</h5>
+                    <div class="popover">遊戲橘子首創點數卡，開啟便利付費服務新時代。</div>
+                </li>
+                <li class="y2002">
+                    <h5>2002</h5>
+                    <div class="popover">正式轉變為 GASH 點數卡，擁有戰力提升、快樂加倍的無限想像。</div>
+                </li>
+                <li class="y2002 y2002-2">
+                    <h5></h5>
+                    <div class="popover bottom">台灣第一家推出線上付費系統 (Virtual Payment Tools)，提供更簡單，便利的付費方式給消費者使用。</div>
+                </li>
+                <li class="y2005">
+                    <h5>2005</h5>
+                    <div class="popover">GASH 不再只侷限於遊戲橘子，還可以買更多遊戲！</div>
+                </li>
+                <li class="y2011">
+                    <h5>2011</h5>
+                    <div class="popover">GASH PLUS 樂點卡公司正式成立，全新發行GASH 點數卡!</div>
+                </li>
+                <li class="y2011 y2011-2">
+                    <h5></h5>
+                    <div class="popover bottom">樂點服務升級，跨足全球，拓展遊戲、影音等數位娛樂，打造便利多元的付費工具。</div>
+                </li>
+                <li class="y2015">
+                    <h5>2015</h5>
+                    <div class="popover">GASH全新品牌，結合數位娛樂與付費服務，打造全球玩家暢遊的娛樂平台。</div>
+                </li>
+                <li class="y2024">
+                    <h5>2024</h5>
+                </li>
+                <li class="y2024 y2024-2">
+                    <h5></h5>
+                    <div class="popover">🎉 網銀國際集團的資源加入</div>
+                </li>
+                <li class="y2024 y2024-3">
+                    <h5></h5>
+                    <div class="popover bottom">打造 FunOne 平台整合遊戲、票券，提供一站式線上線下娛樂體驗。</div>
+                </li>
+            </ul>
+            <ul class="thumbs">
+                <li for="y2000" class="active">
+                    <div><span></span></div>
+                    2000
+                </li>
+                <li for="y2002">
+                    <div><span></span></div>
+                    2002
+                </li>
+                <li for="y2005">
+                    <div><span></span></div>
+                    2005
+                </li>
+                <li for="y2011">
+                    <div><span></span></div>
+                    2011
+                </li>
+                <li for="y2015">
+                    <div><span></span></div>
+                    2015
+                </li>
+                <li for="y2024">
+                    <div><span></span></div>
+                    2024
+                </li>
+            </ul>
+        </div> -->
     </section>
     <section id="service">
         <div class="container">
@@ -288,6 +357,58 @@
 
             // 當畫面尺寸改變時，動態更新 customOffsets
             $(window).resize(updateCustomOffsets);
+
+/*
+            // history 橫向捲軸設定
+            const timeline = $(".timeline");
+            const thumbs = $(".thumbs li");
+
+            function updateActiveState() {
+                let maxVisibleWidth = 0;
+                let maxVisibleItem = null;
+
+                $(".timeline li").each(function () {
+                const $this = $(this);
+                const offsetLeft = $this.offset().left;
+                const width = $this.outerWidth();
+                const windowWidth = $(window).width();
+
+                // 計算該元素的可見部分寬度
+                const visibleLeft = Math.max(offsetLeft, 0);
+                const visibleRight = Math.min(offsetLeft + width, windowWidth);
+                const visibleWidth = Math.max(0, visibleRight - visibleLeft);
+
+                // 如果該元素的可見寬度是目前最大，則記錄它
+                if (visibleWidth > maxVisibleWidth) {
+                    maxVisibleWidth = visibleWidth;
+                    maxVisibleItem = $this;
+                }
+                });
+
+                if (maxVisibleItem) {
+                // 取得所有擁有相同 class name 的 timeline <li> 元素
+                const activeClass = maxVisibleItem.attr("class").split(" ")[0]; // 取第一個 class name
+                const timelineItems = $(".timeline li").filter(`.${activeClass}`);
+                
+                // 只將尚未加上 .active 的 timeline <li> 設為 .active
+                timelineItems.each(function() {
+                    if (!$(this).hasClass("active")) {
+                    $(this).addClass("active");
+                    }
+                });
+
+                // 同步 .thumbs 的 .active
+                thumbs.removeClass("active");
+                thumbs.filter(`[for=${activeClass}]`).addClass("active");
+                }
+            }
+
+            // 當滾動 `.timeline` 時觸發檢查
+            timeline.on("scroll", updateActiveState);
+
+            // 初始化檢查
+            updateActiveState();
+*/
         });
 
         $(window).on('scroll', function () {
