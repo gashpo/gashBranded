@@ -281,6 +281,11 @@ button.btn-white, .button.btn-white {
     height: 2.5rem;
   }
 }
+@media (max-width: 575px) {
+  .swiper-button-next, .swiper-button-prev {
+    display: none;
+  }
+}
 
 .swiper-button-prev {
   left: 2.5rem;
@@ -543,67 +548,6 @@ button.btn-white, .button.btn-white {
 #history {
   padding: 6.25rem 0rem;
   border-bottom: 0.0625rem solid #d7d7d7;
-  /*
-  .timelineSwiper {
-    background-color: color(primary-500);
-    border-radius: px(50);
-    border: px(2) solid color(primary-300);
-    box-shadow: 0 0 px(30) rgba(color(gray-1000), 0.2);
-    height: px(570);
-    position: relative;
-
-    .swiper-slide {
-      img {
-        max-width: 100%;
-      }
-    }
-
-    .swiper-pagination {
-      background-color: color(gray-850);
-      border-radius: px(20);
-      padding: px(16) px(40);
-      display: inline-flex;
-      width: auto;
-      justify-content: center;
-      align-items: center;
-      gap: px(32);
-      position: absolute;
-      bottom: px(24);
-      left: 50%;
-      transform: translate(-50%, 0);
-
-      li {
-        color: color(gray-300);
-        @include fontRWD(body2);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: px(12);
-        cursor: pointer;
-        @include transition;
-
-        span {
-          display: inline-block;
-          width: px(4);
-          height: px(4);
-          border-radius: px(8);
-          background-color: color(gray-300);
-          position: relative;
-          @include transition;
-        }
-
-        @include hover {
-          color: color(gray-200);
-
-          span {
-            background-color: color(gray-200);
-          }
-        }
-      }
-    }
-  }
-  */
 }
 #history .title {
   display: flex;
@@ -694,6 +638,137 @@ button.btn-white, .button.btn-white {
   opacity: 0.4;
 }
 #history .content .thumbs li.active div span::after {
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.2;
+}
+#history .content_new {
+  margin-top: 2.5rem;
+  background-color: #e72e6b;
+  color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 3.125rem;
+  border: 0.125rem solid #f182a6;
+  box-shadow: 0 0 1.875rem rgba(0, 0, 0, 0.2);
+  height: 35.625rem;
+  position: relative;
+  overflow: hidden;
+}
+#history .content_new .timeline {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#history .content_new .timeline li {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#history .content_new .timeline li::before {
+  content: "";
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 1.125rem;
+  background-color: rgba(34, 34, 34, 0.5);
+}
+#history .content_new .timeline li h5 {
+  position: absolute;
+  top: calc(100% + 1.125rem);
+  left: 50%;
+  transform: translate(-50%, 0);
+  opacity: 0.5;
+}
+#history .content_new .timeline li .popover {
+  position: absolute;
+  bottom: calc(100% + 2.25rem);
+  left: -1.75rem;
+  padding: 1.25rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #222222;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.25);
+  border-radius: 1.25rem;
+  min-width: max-content;
+}
+#history .content_new .timeline li .popover::before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.9);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  position: absolute;
+  width: 1rem;
+  height: 0.75rem;
+  top: 100%;
+  left: 2rem;
+}
+#history .content_new .timeline li.active::before {
+  background-color: #222222;
+  width: 1.375rem;
+  height: 1.375rem;
+}
+#history .content_new .timeline li.active h5 {
+  opacity: 1;
+}
+#history .content_new .thumbs {
+  position: absolute;
+  width: max-content;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 1rem;
+  background-color: rgba(34, 34, 34, 0.9);
+  padding: 1rem 2.5rem;
+  display: flex;
+  gap: 2rem;
+}
+#history .content_new .thumbs li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: center;
+  color: #b0b0b0;
+  padding-top: 0.25rem;
+  cursor: pointer;
+}
+#history .content_new .thumbs li div {
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#history .content_new .thumbs li div span {
+  position: relative;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 1rem;
+  background-color: #b0b0b0;
+}
+#history .content_new .thumbs li.active {
+  color: #ffffff;
+}
+#history .content_new .thumbs li.active div span {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #ffffff;
+}
+#history .content_new .thumbs li.active div span::before, #history .content_new .thumbs li.active div span::after {
+  background-color: #ffffff;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.5rem;
+}
+#history .content_new .thumbs li.active div span::before {
+  width: 0.625rem;
+  height: 0.625rem;
+  opacity: 0.4;
+}
+#history .content_new .thumbs li.active div span::after {
   width: 1rem;
   height: 1rem;
   opacity: 0.2;
@@ -806,6 +881,10 @@ button.btn-white, .button.btn-white {
   flex: 1;
   padding: 0.5rem 0rem;
 }
+#products .swiper {
+  margin-top: -1.25rem;
+  padding-top: 1.25rem;
+}
 #products .swiper .swiper-slide {
   max-width: 47.8125rem;
 }
@@ -847,6 +926,9 @@ button.btn-white, .button.btn-white {
 @media (max-width: 575px) {
   #contact {
     padding: 2.5rem 1.25rem;
+  }
+  #contact h1 {
+    font-size: 1.5rem;
   }
 }
 

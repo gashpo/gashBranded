@@ -18,6 +18,10 @@
         width: px(40);
         height: px(40);
     }
+
+    @include max-to(mobile) {
+        display: none;
+    }
 }
 
 .swiper-button-prev {
