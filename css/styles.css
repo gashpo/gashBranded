@@ -556,11 +556,14 @@ button.btn-white, .button.btn-white {
   margin-bottom: 6.25rem;
 }
 #history .title h2 {
-  flex: 1;
+  flex: 5;
   color: #222222;
 }
+#history .title h2 span {
+  display: none;
+}
 #history .title p {
-  flex: 1;
+  flex: 4;
   color: #626262;
 }
 #history .content {
@@ -877,9 +880,43 @@ button.btn-white, .button.btn-white {
   height: 1rem;
   opacity: 0.2;
 }
+@media (max-width: 1279px) {
+  #history .title {
+    flex-wrap: wrap;
+  }
+  #history .title h2 {
+    flex: 100%;
+  }
+  #history .title p {
+    flex: 70svw;
+    max-width: 70svw;
+  }
+}
 @media (max-width: 991px) {
+  #history .title p {
+    flex: 1;
+    max-width: 100%;
+  }
   #history .content .timeline img {
     transform: translateX(-31.25rem);
+  }
+}
+@media (max-width: 767px) {
+  #history .title h2 br {
+    display: none;
+  }
+  #history .title h2 span {
+    display: inline;
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 767px) and (max-width: 991px) {
+  #history .title h2 span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.5;
   }
 }
 @media (max-width: 575px) {
@@ -1101,10 +1138,10 @@ body {
 
 ::-moz-selection {
   background-color: #e72e6b;
-  color: #ffffff;
+  color: #000000;
 }
 
 ::selection {
   background-color: #e72e6b;
-  color: #ffffff;
+  color: #000000;
 }

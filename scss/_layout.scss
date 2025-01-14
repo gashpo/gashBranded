@@ -257,12 +257,16 @@
     margin-bottom: px(100);
 
     h2 {
-      flex: 1;
+      flex: 5;
       color: color(gray-850);
+
+      span {
+        display: none;
+      }
     }
 
     p {
-      flex: 1;
+      flex: 4;
       color: color(gray-600);
     }
   }
@@ -646,11 +650,48 @@
     }
   }
 
+  @include max-to(desktop) {
+    .title {
+      flex-wrap: wrap;
+
+      h2 {
+        flex: 100%;
+      }
+      
+      p {
+        flex: 70svw;
+        max-width: 70svw;
+      }
+    }
+  }
+
   @include max-to(tablet) {
+    .title {
+      p {
+        flex: 1;
+        max-width: 100%;
+      }
+    }
+
     .content {
       .timeline {
         img {
           transform: translateX(px(-500));
+        }
+      }
+    }
+  }
+  
+  @include max-to(mobileH) {
+    .title {
+      h2 {
+        br {
+          display: none;
+        }
+
+        span {
+          display: inline;
+          @include fontRWD(h2);
         }
       }
     }
