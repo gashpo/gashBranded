@@ -565,6 +565,7 @@ button.btn-white, .button.btn-white {
 #history .title p {
   flex: 4;
   color: #626262;
+  margin-top: 0.5rem;
 }
 #history .content {
   background-color: #e72e6b;
@@ -883,6 +884,7 @@ button.btn-white, .button.btn-white {
 @media (max-width: 1279px) {
   #history .title {
     flex-wrap: wrap;
+    gap: 0rem;
   }
   #history .title h2 {
     flex: 100%;
@@ -922,7 +924,6 @@ button.btn-white, .button.btn-white {
 @media (max-width: 575px) {
   #history .title {
     flex-direction: column;
-    gap: 0rem;
   }
   #history .content {
     overflow-x: scroll;

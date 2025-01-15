@@ -268,6 +268,7 @@
     p {
       flex: 4;
       color: color(gray-600);
+      margin-top: px(8);
     }
   }
 
@@ -653,6 +654,7 @@
   @include max-to(desktop) {
     .title {
       flex-wrap: wrap;
+      gap: px(0);
 
       h2 {
         flex: 100%;
@@ -700,7 +702,6 @@
   @include max-to(mobile) {
     .title {
       flex-direction: column;
-      gap: px(0);
     }
 
     .content {
