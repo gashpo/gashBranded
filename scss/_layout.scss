@@ -272,6 +272,7 @@
     }
   }
 
+  /*
   .content {
     background-color: color(primary-500);
     border-radius: px(50);
@@ -365,6 +366,7 @@
       }
     }
   }
+  */
 
   .content_new {
     margin-top: px(40);
@@ -378,7 +380,7 @@
     overflow: hidden;
 
     .timeline {
-      height: 100%;
+      height: calc(100% - px(60));
       display: flex;
       align-items: center;
       padding-left: px(550);
@@ -391,7 +393,7 @@
 
       li {
         position: relative;
-        width: px(24);
+        min-width: px(24);
         height: px(24);
         display: flex;
         align-items: center;
@@ -403,6 +405,7 @@
           height: px(18);
           border-radius: px(18);
           background-color: rgba(color(gray-850), 0.5);
+          transition: background-color 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
         }
 
         &::after {
@@ -421,7 +424,7 @@
           left: 50%;
           transform: translate(-50%, 0);
           opacity: 0.5;
-          @include transition(color);
+          @include transition(opacity);
         }
 
         .popover {
@@ -487,30 +490,34 @@
         }
 
         &.y2002 {
-          margin-right: px(320);
+          margin-right: px(350);
 
           &::after {
-            width: calc(px(320) - px(24));
+            width: calc(px(350) - px(24));
           }
         }
 
         &.y2002-2 {
-          margin-right: px(420);
+          margin-right: px(550);
 
           &::after {
-            width: calc(px(420) - px(24));
+            width: calc(px(550) - px(24));
           }
 
           .popover {
-            width: px(355);
+            width: px(450);
           }
         }
 
         &.y2005 {
-          margin-right: px(500);
+          margin-right: px(680);
 
           &::after {
-            width: calc(px(500) - px(24));
+            width: calc(px(680) - px(24));
+          }
+
+          .popover {
+            width: px(450);
           }
         }
 
@@ -523,10 +530,10 @@
         }
 
         &.y2011-2 {
-          margin-right: px(400);
+          margin-right: px(550);
 
           &::after {
-            width: calc(px(400) - px(24));
+            width: calc(px(550) - px(24));
           }
 
           .popover {
@@ -535,10 +542,14 @@
         }
 
         &.y2015 {
-          margin-right: px(500);
+          margin-right: px(680);
 
           &::after {
-            width: calc(px(500) - px(24));
+            width: calc(px(680) - px(24));
+          }
+
+          .popover {
+            width: px(450);
           }
         }
 
@@ -675,10 +686,40 @@
       }
     }
 
+    /*
     .content {
       .timeline {
         img {
           transform: translateX(px(-500));
+        }
+      }
+    }
+    */
+
+    .content_new {
+      .timeline {
+        padding-left: calc((100svw - px(40)) / 2);
+
+        li {
+          &.y2024 {
+            margin-right: px(300);
+
+            &::after {
+              width: calc(px(300) - px(24));
+            }
+          }
+
+          &.y2024-2 {
+            margin-right: px(150);
+
+            .popover {
+              width: max-content;
+            }
+
+            &::after {
+              width: calc(px(150) - px(24));
+            }
+          }
         }
       }
     }
@@ -704,6 +745,7 @@
       flex-direction: column;
     }
 
+    /*
     .content {
       overflow-x: scroll;
       height: px(420);
@@ -718,6 +760,58 @@
 
       .thumbs {
         display: none;
+      }
+    }
+    */
+
+    .content_new {
+      /*
+      height: calc(100svh - px(40));
+      max-height: 80svh;
+
+      .timeline {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: px(20) px(40);
+
+        li {
+          margin: auto 0 !important;
+          height: auto;
+
+          h5 {
+            position: initial;
+            transform: translate(px(-32), -100%);
+          }
+
+          &::after {
+            width: px(2);
+            top: 100%;
+            left: 0;
+            transform: translate(px(11), 0);
+          }
+
+          .popover {
+            margin-left: px(80);
+            bottom: auto;
+
+            &::before, &.bottom::before {
+              clip-path: polygon(100% 0, 0 50%, 100% 100%);
+              width: px(12);
+              height: px(16);
+              top: px(24);
+              right: 100%;
+              left: auto;
+            }
+          }
+        }
+      }
+      */
+
+      .thumbs {
+        bottom: 0;
+        padding: px(16) px(24) px(24);
+        gap: px(24);
+        border-radius: px(0);
       }
     }
   }

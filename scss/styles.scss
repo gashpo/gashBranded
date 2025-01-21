@@ -13,11 +13,11 @@ body {
 }
 
 ::-moz-selection {
-  background-color: color(primary-500);
-  color: color(gray-1000);
+  color: color(primary-500);
+  background-color: rgba(color(gray-1000), 0.8);
 }
 
 ::selection {
-  background-color: color(primary-500);
-  color: color(gray-1000);
+  color: color(primary-500);
+  background-color: rgba(color(gray-1000), 0.8);
 }

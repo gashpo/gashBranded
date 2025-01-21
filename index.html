@@ -10,11 +10,10 @@
 
     <!-- 網頁分享資訊 -->
     <meta name="description" content="GASH 是台港澳泛娛樂服務平台，致力於提供跨區域、多元化的數位娛樂內容與支付解決方案，為用戶打造一站式的數位娛樂生態系統。GASH 透過合作夥伴與創新技術，串聯各類娛樂資源，滿足消費者在遊戲、影音、社交及購物等領域的需求，並支持便捷安全的支付方式，為廣大用戶帶來更豐富的數位生活體驗。" />
-    <meta name="keywords" content="">
     <meta property="og:type" content="website">
     <meta property="og:title" content="GASH泛娛樂平台">
     <meta property="og:description" content="GASH 是台港澳泛娛樂服務平台，致力於提供跨區域、多元化的數位娛樂內容與支付解決方案，為用戶打造一站式的數位娛樂生態系統。GASH 透過合作夥伴與創新技術，串聯各類娛樂資源，滿足消費者在遊戲、影音、社交及購物等領域的需求，並支持便捷安全的支付方式，為廣大用戶帶來更豐富的數位生活體驗。">
-    <meta property="og:image" content="images/og-image.jpg" />
+    <meta property="og:image" content="https://www.gashpoint.com/images/og-image.jpg" />
 
     <!-- 防止手機版電話號碼出現撥號超連結 -->
     <meta name="format-detection" content="telephone=no" />
@@ -64,7 +63,7 @@
             <h2>打造泛娛樂生態圈，聚焦數位連結<span>，</span><br>無界想像新體驗！</h2>
             <p>擁有網銀國際與遊戲橘子的支持，將整合兩大集團資源，創造一個更開放便利的數位娛樂生態系，降低消費門檻，讓娛樂更容易觸手可及。</p>
         </div>
-        <div class="content">
+        <!-- <div class="content">
             <div class="timeline"><img src="images/history.png"></div>
             <ul class="thumbs">
                 <li class="active">
@@ -88,6 +87,75 @@
                     2015
                 </li>
                 <li>
+                    <div><span></span></div>
+                    2024
+                </li>
+            </ul>
+        </div> -->
+        <div class="content_new">
+            <ul class="timeline">
+                <li id="y-2000" class="y2000 active">
+                    <h5>2000</h5>
+                    <div class="popover">遊戲橘子首創點數卡，開啟便利付費服務新時代。</div>
+                </li>
+                <li id="y-2002" class="y2002">
+                    <h5>2002</h5>
+                    <div class="popover">正式轉變為 GASH 點數卡，擁有戰力提升、快樂加倍的無限想像。</div>
+                </li>
+                <li class="y2002 y2002-2">
+                    <h5></h5>
+                    <div class="popover bottom">台灣第一家推出線上付費系統 (Virtual Payment Tools)，提供更簡單，便利的付費方式給消費者使用。</div>
+                </li>
+                <li id="y-2005" class="y2005">
+                    <h5>2005</h5>
+                    <div class="popover">GASH 不再只侷限於遊戲橘子，還可以買更多遊戲！</div>
+                </li>
+                <li id="y-2011" class="y2011">
+                    <h5>2011</h5>
+                    <div class="popover">GASH PLUS 樂點卡公司正式成立，全新發行GASH 點數卡!</div>
+                </li>
+                <li class="y2011 y2011-2">
+                    <h5></h5>
+                    <div class="popover bottom">樂點服務升級，跨足全球，拓展遊戲、影音等數位娛樂，打造便利多元的付費工具。</div>
+                </li>
+                <li id="y-2015" class="y2015">
+                    <h5>2015</h5>
+                    <div class="popover">GASH全新品牌，結合數位娛樂與付費服務，打造全球玩家暢遊的娛樂平台。</div>
+                </li>
+                <li id="y-2024" class="y2024">
+                    <h5>2024</h5>
+                </li>
+                <li class="y2024 y2024-2">
+                    <h5></h5>
+                    <div class="popover">🎉 網銀國際集團的資源加入</div>
+                </li>
+                <li class="y2024 y2024-3">
+                    <h5></h5>
+                    <div class="popover bottom">打造 FunOne 平台整合遊戲、票券，提供一站式線上線下娛樂體驗。</div>
+                </li>
+            </ul>
+            <ul class="thumbs">
+                <li for="y2000" class="active">
+                    <div><span></span></div>
+                    2000
+                </li>
+                <li for="y2002">
+                    <div><span></span></div>
+                    2002
+                </li>
+                <li for="y2005">
+                    <div><span></span></div>
+                    2005
+                </li>
+                <li for="y2011">
+                    <div><span></span></div>
+                    2011
+                </li>
+                <li for="y2015">
+                    <div><span></span></div>
+                    2015
+                </li>
+                <li for="y2024">
                     <div><span></span></div>
                     2024
                 </li>
@@ -208,6 +276,69 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <script>
+        // 瀏覽器版本偵測
+        function getBrowserInfo() {
+            const ua = navigator.userAgent;
+            let browserName = "Unknown";
+            let fullVersion = "Unknown";
+
+            if (ua.indexOf("Edg") > -1) {
+                browserName = "Edge";
+                fullVersion = ua.substring(ua.indexOf("Edg") + 4).split(" ")[0];
+            } else if (ua.indexOf("Chrome") > -1 && ua.indexOf("Edge") === -1 && ua.indexOf("OPR") === -1) {
+                browserName = "Chrome";
+                fullVersion = ua.substring(ua.indexOf("Chrome") + 7).split(" ")[0];
+            } else if (ua.indexOf("Firefox") > -1) {
+                browserName = "Firefox";
+                fullVersion = ua.substring(ua.indexOf("Firefox") + 8).split(" ")[0];
+            } else if (ua.indexOf("Safari") > -1 && ua.indexOf("Chrome") === -1) {
+                browserName = "Safari";
+                fullVersion = ua.substring(ua.indexOf("Version") + 8).split(" ")[0];
+            } else if (ua.indexOf("MSIE") > -1) {
+                browserName = "Internet Explorer";
+                fullVersion = ua.substring(ua.indexOf("MSIE") + 5).split(";")[0];
+            } else if (ua.indexOf("Trident") > -1) {
+                browserName = "Internet Explorer";
+                const rvIndex = ua.indexOf("rv:");
+                if (rvIndex > -1) {
+                    fullVersion = ua.substring(rvIndex + 3).split(" ")[0];
+                }
+            } else if (ua.indexOf("OPR") > -1) {
+                browserName = "Opera";
+                fullVersion = ua.substring(ua.indexOf("OPR") + 4).split(" ")[0];
+            }
+
+            return { browserName, fullVersion };
+        }
+        $(document).ready(function () {
+            const userAgent = navigator.userAgent;
+
+            // 檢測瀏覽器版本的正則表達式
+            const versionCheck = (regex) => {
+                const match = userAgent.match(regex);
+                return match && match[1] ? parseFloat(match[1]) : null;
+            };
+
+            // 判斷各瀏覽器版本
+            const isEdge = userAgent.includes("Edg") && versionCheck(/Edg\/(\d+(\.\d+)?)/) < 108;
+            const isChrome = userAgent.includes("Chrome") && !userAgent.includes("Edg") && !userAgent.includes("OPR") && versionCheck(/Chrome\/(\d+(\.\d+)?)/) < 108;
+            const isFirefox = userAgent.includes("Firefox");
+            const isOpera = userAgent.includes("OPR") && versionCheck(/OPR\/(\d+(\.\d+)?)/) < 94;
+            const isSafari =
+                userAgent.includes("Safari") &&
+                !userAgent.includes("Chrome") &&
+                !userAgent.includes("Edg") &&
+                versionCheck(/Version\/(\d+(\.\d+)?)/) < 16.4;
+
+            // 根據條件顯示對應的警告
+            if (isFirefox) {
+                alert("您的瀏覽器不支援部分網頁效果，建議使用其他瀏覽器以獲得更好的使用體驗！");
+            } else if (isChrome || isEdge || isOpera || isSafari) {
+                alert("您的瀏覽器版本不支援部分網頁效果，建議更新至最新版本以獲得更好的使用體驗！");
+            }
+        });
+
+        // sticky 選單
         $(document).ready(function () {
             // keyvision 下滑按鈕
             $('button').click(function () {
@@ -226,7 +357,6 @@
                     );
                 }
             });
-
             // section 區塊連動 sticky active 狀態
             $('#sticky .content li').click(function () {
                 // 獲取按鈕的 data-target 值
@@ -243,8 +373,42 @@
                     500 // 動畫時間（500ms，可以根據需求調整）
                 );
             });
+        });
+        $(window).on('scroll', function () {
+            const scrollTop = $(window).scrollTop();
+            const windowHeight = $(window).height();
+            const documentHeight = $(document).height();
+            const headerHeight = $('#sticky').outerHeight(); // 如果 header 固定在頁面頂部，考慮其高度
+            const sections = ['#history', '#service', '#products', '#contact'];
 
+            // 判斷是否滾動到底部
+            if (scrollTop + windowHeight >= documentHeight) {
+                $('#sticky .content li').removeClass('active');
+                $('#sticky .content li[data-target="#contact"]').addClass('active');
+                return;
+            }
 
+            // 遍歷每個 section 的 offset
+            sections.forEach(function (section, index) {
+                const $section = $(section);
+                const nextSection = sections[index + 1] ? $(sections[index + 1]) : null;
+
+                const sectionTop = $section.offset().top - headerHeight - 60;
+                const sectionBottom = nextSection
+                    ? nextSection.offset().top - headerHeight - 60
+                    : $(document).height();
+
+                // 判斷目前的捲動位置是否在該 section 範圍內
+                if (scrollTop >= sectionTop && scrollTop < sectionBottom) {
+                    $('#sticky .content li').removeClass('active');
+                    $('#sticky .content li[data-target="' + section + '"]').addClass('active');
+                }
+            });
+        });
+
+        // history 橫向捲軸
+        $(document).ready(function () {
+/*
             // history 點擊連動時間軸
             const timeline = $('.timeline img'); // 取得 timeline 的 img
             const liElements = $('.thumbs li');
@@ -291,9 +455,8 @@
 
             // 當畫面尺寸改變時，動態更新 customOffsets
             $(window).resize(updateCustomOffsets);
+*/
 
-/*
-            // history 橫向捲軸設定
             const timeline = $(".timeline");
             const thumbs = $(".thumbs li");
 
@@ -328,99 +491,94 @@
                     timeline.css("cursor", "grab"); // 恢復為可抓取狀態
                 }
             });
-            // 更新 .timeline 的元素 active 狀態
+
             function updateActiveState() {
-                const windowWidth = $(window).width(); // 窗口寬度
-                const middleOfScreen = windowWidth / 2; // 計算畫面正中間位置
+                const $contentNew = $('.content_new'); // 獲取 .content_new 元素
+                const contentRightEdge = $contentNew.offset().left + $contentNew.outerWidth(); // 計算 .content_new 的最右邊位置
+                const contentLeftEdge = $contentNew.offset().left; // 計算 .content_new 的左邊位置
 
-                $(".timeline li").each(function () {
-                    const $this = $(this);
-                    const offsetLeft = $this.offset().left; // 元素距離左邊的距離
-                    const width = $this.outerWidth(); // 元素的寬度
-                    const elementCenter = offsetLeft + width / 2; // 計算元素的中心位置
+                $('.timeline li').each(function () {
+                    const $item = $(this);
+                    const itemLeftEdge = $item.offset().left; // 獲取 <li> 的左邊位置
+                    const itemRightEdge = itemLeftEdge + $item.outerWidth(); // 獲取 <li> 的右邊位置
 
-                    // 當元素的中心進入畫面正中間時
-                    if (elementCenter >= middleOfScreen - 50 && elementCenter <= middleOfScreen + 50) {
-                        // 取得所有擁有相同 class name 的 timeline <li> 元素
-                        const activeClass = $this.attr("class").split(" ")[0]; // 取第一個 class name
-                        const timelineItems = $(".timeline li").filter(`.${activeClass}`);
+                    // 判斷 .timeline > li 超過畫面時移除 .active
+                    if (contentRightEdge - itemLeftEdge <= 50 || itemRightEdge - contentLeftEdge <= -100) {
+                        $item.removeClass('active');
+                    } else {
+                        $item.addClass('active');
+                        const itemClass = $item.attr('class');
 
-                        // 增加 .active 至所有擁有相同 class name 且未擁有 .active 的 timeline <li>
-                        timelineItems.each(function() {
-                            if (!$(this).hasClass("active")) {
-                                $(this).addClass("active");
-                            }
-                        });
+                        if (itemClass) {
+                            $('.thumbs li').each(function () {
+                                const $thumbItem = $(this);
 
-                        thumbs.removeClass("active"); // 同步 .thumbs 的 .active
-                        thumbs.filter(`[for=${activeClass}]`).addClass("active");
+                                // 比對 .thumbs <li> 的 for 屬性和 .timeline <li> 的 class 名稱，相符時添加 active，否則移除 active
+                                const thumbFor = $thumbItem.attr('for');
+                                if (thumbFor && itemClass.includes(thumbFor)) {
+                                    $thumbItem.addClass('active');
+                                } else {
+                                    $thumbItem.removeClass('active');
+                                }
+                            });
+                        }
+                        
+                        // 檢查 .timeline 是否在最左邊
+                        if ($('.timeline').scrollLeft() === 0) {
+                            // 如果捲軸在最左邊，將 .thumbs 的第一個 <li> 設為 active
+                            $('.thumbs li').first().addClass('active');
+                            // 移除其他 <li> 的 .active
+                            $('.thumbs li').not(':first').removeClass('active');
+                        }
+
                     }
                 });
             }
 
-            // 當滾動 `.timeline` 時觸發檢查
+            // 確保在頁面滾動或 resize 時觸發更新
+            $(window).on('scroll resize', updateActiveState);
+
+
+            // 當滾動 .timeline 時觸發檢查
             timeline.on("scroll", updateActiveState);
             updateActiveState(); // 初始化檢查
 
-            // 點擊 .thumbs 中的項目，滾動到相對應的 .timeline <li>
-            console.log($(".timeline #y-2000").offset().left)
-            console.log($(".timeline #y-2002").offset().left)
-            console.log($(".timeline #y-2005").offset().left)
-            console.log($(".timeline #y-2011").offset().left)
-            console.log($(".timeline #y-2015").offset().left)
-            console.log($(".timeline #y-2024").offset().left)
+            // 點擊 .thumbs 中的項目時 .timeline 滑動到相對應的 <li>
+            const content_center = ($(".content_new").width() / 2);
+            const y2000_offset = 0;
+            const y2002_offset = ($(".timeline .y2002").first().offset().left - content_center);
+            const y2005_offset = ($(".timeline .y2005").first().offset().left - content_center);
+            const y2011_offset = ($(".timeline .y2011").first().offset().left - content_center);
+            const y2015_offset = ($(".timeline .y2015").first().offset().left - content_center);
+            const y2024_offset = $(".timeline .y2024").first().offset().left;
 
             thumbs.on("click", function() {
-                const targetId = $(this).attr("for"); // 取得對應的 class
-                const targetElement = $(`.timeline #${targetId}`); // 找到相對應的 timeline 元素
-                const content_new = $('.content_new');
-                const timelineFullWidth = $(".timeline").get(0).scrollWidth;
+                const targetLi = $(this).attr("for"); // 取得對應的 id
 
-                if (targetElement.length) {
-                    console.log(targetElement.offset().left);
-                    // 計算對應元素的位置並滾動到正中間，使用動畫平滑滾動
-                    const offset = targetElement.offset().left - content_new.offset().left;
-                    
-                    // 計算滾動的目標位置
-                    const targetScrollLeft = offset - (content_new.width() / 2) + (targetElement.outerWidth() / 2);
-
-                    // 使用 500 毫秒的平滑滾動
+                if (targetLi == "y2000") {
                     timeline.animate({
-                        scrollLeft: targetScrollLeft
-                    }, 500); // 滾動過程持續 500 毫秒
-                }
-            });
-*/
-        });
-
-        $(window).on('scroll', function () {
-            const scrollTop = $(window).scrollTop();
-            const windowHeight = $(window).height();
-            const documentHeight = $(document).height();
-            const headerHeight = $('#sticky').outerHeight(); // 如果 header 固定在頁面頂部，考慮其高度
-            const sections = ['#history', '#service', '#products', '#contact'];
-
-            // 判斷是否滾動到底部
-            if (scrollTop + windowHeight >= documentHeight) {
-                $('#sticky .content li').removeClass('active');
-                $('#sticky .content li[data-target="#contact"]').addClass('active');
-                return;
-            }
-
-            // 遍歷每個 section 的 offset
-            sections.forEach(function (section, index) {
-                const $section = $(section);
-                const nextSection = sections[index + 1] ? $(sections[index + 1]) : null;
-
-                const sectionTop = $section.offset().top - headerHeight - 60;
-                const sectionBottom = nextSection
-                    ? nextSection.offset().top - headerHeight - 60
-                    : $(document).height();
-
-                // 判斷目前的捲動位置是否在該 section 範圍內
-                if (scrollTop >= sectionTop && scrollTop < sectionBottom) {
-                    $('#sticky .content li').removeClass('active');
-                    $('#sticky .content li[data-target="' + section + '"]').addClass('active');
+                        scrollLeft: y2000_offset
+                    }, 500);
+                } else if (targetLi == "y2002") {
+                    timeline.animate({
+                        scrollLeft: y2002_offset + 200
+                    }, 500);
+                } else if (targetLi == "y2005") {
+                    timeline.animate({
+                        scrollLeft: y2005_offset
+                    }, 500);
+                } else if (targetLi == "y2011") {
+                    timeline.animate({
+                        scrollLeft: y2011_offset + 150
+                    }, 500);
+                } else if (targetLi == "y2015") {
+                    timeline.animate({
+                        scrollLeft: y2015_offset
+                    }, 500);
+                } else if (targetLi == "y2024") {
+                    timeline.animate({
+                        scrollLeft: y2024_offset
+                    }, 500);
                 }
             });
         });
