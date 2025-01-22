@@ -807,10 +807,28 @@
       }
       */
 
+      height: px(400);
+
+      .timeline {
+        padding-left: px(80);
+        height: 100%;
+
+        li {
+          transform: scale(0.9);
+
+          &::after {
+            transform: translate(px(28), px(-1));
+          }
+        }
+      }
+
       .thumbs {
+        display: none;
+        width: 100%;
         bottom: 0;
         padding: px(16) px(24) px(24);
-        gap: px(24);
+        justify-content: space-between;
+        gap: 0;
         border-radius: px(0);
       }
     }
