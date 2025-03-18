@@ -192,12 +192,12 @@
     <section id="products">
         <div class="title container">
             <h2>擁有最具消費力的娛樂會員池</h2>
-            <p>擁有每月 400 萬行動流量 + 精準廣告觸及打造平台流量閉環，多種類娛樂服務提供強大人流，相互助力、加乘推廣效果​​。</p>
+            <p id="FunOneTickets">擁有每月 400 萬行動流量 + 精準廣告觸及打造平台流量閉環，多種類娛樂服務提供強大人流，相互助力、加乘推廣效果​​。</p>
         </div>
         <div class="swiper productSwiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="images/FunOneTickets.jpg" />
+                <a href="https://tickets.funone.io/" target="_blank"><img src="images/FunOneTickets.jpg" /></a>
                 <div>
                     <h4>FunOne Tickets</h4>
                     <a class="button" href="https://tickets.funone.io/" target="_blank">
@@ -207,7 +207,7 @@
                 </div>
               </div>
               <div class="swiper-slide">
-                <img src="images/Gash.jpg" />
+                <a href="https://tw.gashpoint.com/" target="_blank"><img src="images/Gash.jpg" /></a>
                 <div>
                     <h4>GASH 數位娛樂服務平台</h4>
                     <a class="button" href="https://tw.gashpoint.com/" target="_blank">
@@ -217,7 +217,7 @@
                 </div>
               </div>
               <div class="swiper-slide">
-                <img src="images/YoeCard.jpg" />
+                <a href="https://www.yoe.com.tw/" target="_blank"><img src="images/YoeCard.jpg" /></a>
                 <div>
                     <h4>遊e卡：遊樂購點第一站</h4>
                     <a class="button" href="https://www.yoe.com.tw/" target="_blank">
@@ -227,7 +227,7 @@
                 </div>
               </div>
               <div class="swiper-slide">
-                <img src="images/GashEc.jpg" />
+                <a  href="https://ec.gashpoint.com/" target="_blank"><img src="images/GashEc.jpg" /></a>
                 <div>
                     <h4>GASH商城 | 首選數位娛樂商品交易平台，官方正版遊戲點數超優惠！</h4>
                     <a class="button" href="https://ec.gashpoint.com/" target="_blank">
@@ -237,7 +237,7 @@
                 </div>
               </div>
               <div class="swiper-slide">
-                <img src="images/FunOneGames.jpg" />
+                <a href="https://games.funone.io/" target="_blank"><img src="images/FunOneGames.jpg" /></a>
                 <div>
                     <h4>FunOne Games－冒險從這裡開始！</h4>
                     <a class="button" href="https://games.funone.io/" target="_blank">
@@ -408,54 +408,54 @@
 
         // history 橫向捲軸
         $(document).ready(function () {
-/*
-            // history 點擊連動時間軸
-            const timeline = $('.timeline img'); // 取得 timeline 的 img
-            const liElements = $('.thumbs li');
-            const liCount = liElements.length; // 獲取 <li> 的數量
+            /*
+                // history 點擊連動時間軸
+                const timeline = $('.timeline img'); // 取得 timeline 的 img
+                const liElements = $('.thumbs li');
+                const liCount = liElements.length; // 獲取 <li> 的數量
 
-            // 使用 naturalWidth 獲取 img 的實際寬度
-            const timelineWidth = timeline[0].naturalWidth;
-            const containerWidth = timeline.parent().width(); // 容器的寬度
-            const maxOffset = timelineWidth - containerWidth; // timeline 可移動的最大範圍
+                // 使用 naturalWidth 獲取 img 的實際寬度
+                const timelineWidth = timeline[0].naturalWidth;
+                const containerWidth = timeline.parent().width(); // 容器的寬度
+                const maxOffset = timelineWidth - containerWidth; // timeline 可移動的最大範圍
 
-            // 初始 customOffsets 設定，暫時用 maxOffset
-            let customOffsets = [0, 1000, 1850, 2400, 3100, maxOffset]; // 依據需求自訂位移數值
+                // 初始 customOffsets 設定，暫時用 maxOffset
+                let customOffsets = [0, 1000, 1850, 2400, 3100, maxOffset]; // 依據需求自訂位移數值
 
-            // 更新 customOffsets 根據裝置寬度
-            function updateCustomOffsets() {
-                const windowWidth = window.innerWidth;
+                // 更新 customOffsets 根據裝置寬度
+                function updateCustomOffsets() {
+                    const windowWidth = window.innerWidth;
 
-                if (windowWidth < 992) {
-                    customOffsets[0] = 500; // 小於 992 時，第一個位移改為 500
-                    customOffsets[customOffsets.length - 1] = Math.max(maxOffset - 150, 0); // 確保位移值不為負數
-                } else {
-                    customOffsets[0] = 0; // 大於等於 992 時，第一個位移為 0
-                    customOffsets[customOffsets.length - 1] = maxOffset; // 最後一個位移為 maxOffset
-                }
-            }
-
-            // 設定每個 <li> 的點擊事件
-            liElements.click(function () {
-                // 點擊時更新 customOffsets
-                updateCustomOffsets();
-
-                const index = $(this).index(); // 取得目前點擊的 <li> 的索引
-                const offset = customOffsets[index]; // 根據索引取得對應的位移數值
-
-                // 確保 offset 存在，避免無效點擊
-                if (offset !== undefined) {
-                    timeline.css('transform', `translateX(-${offset}px)`); // 設置 .timeline 的 transform 屬性
+                    if (windowWidth < 992) {
+                        customOffsets[0] = 500; // 小於 992 時，第一個位移改為 500
+                        customOffsets[customOffsets.length - 1] = Math.max(maxOffset - 150, 0); // 確保位移值不為負數
+                    } else {
+                        customOffsets[0] = 0; // 大於等於 992 時，第一個位移為 0
+                        customOffsets[customOffsets.length - 1] = maxOffset; // 最後一個位移為 maxOffset
+                    }
                 }
 
-                // 移除其他 <li> 的 .active，並為當前點擊的 <li> 增加 .active
-                liElements.removeClass('active');
-                $(this).addClass('active');
-            });
+                // 設定每個 <li> 的點擊事件
+                liElements.click(function () {
+                    // 點擊時更新 customOffsets
+                    updateCustomOffsets();
 
-            // 當畫面尺寸改變時，動態更新 customOffsets
-            $(window).resize(updateCustomOffsets);
-*/
+                    const index = $(this).index(); // 取得目前點擊的 <li> 的索引
+                    const offset = customOffsets[index]; // 根據索引取得對應的位移數值
+
+                    // 確保 offset 存在，避免無效點擊
+                    if (offset !== undefined) {
+                        timeline.css('transform', `translateX(-${offset}px)`); // 設置 .timeline 的 transform 屬性
+                    }
+
+                    // 移除其他 <li> 的 .active，並為當前點擊的 <li> 增加 .active
+                    liElements.removeClass('active');
+                    $(this).addClass('active');
+                });
+
+                // 當畫面尺寸改變時，動態更新 customOffsets
+                $(window).resize(updateCustomOffsets);
+            */
 
             const timeline = $(".timeline");
             const thumbs = $(".thumbs li");
@@ -492,6 +492,7 @@
                 }
             });
 
+            // 幫 .thumbs 增加 .active
             function updateActiveState() {
                 const $contentNew = $('.content_new'); // 獲取 .content_new 元素
                 const contentRightEdge = $contentNew.offset().left + $contentNew.outerWidth(); // 計算 .content_new 的最右邊位置
@@ -530,7 +531,6 @@
                             // 移除其他 <li> 的 .active
                             $('.thumbs li').not(':first').removeClass('active');
                         }
-
                     }
                 });
             }
