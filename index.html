@@ -277,47 +277,17 @@
     
     <script>
         // 瀏覽器版本偵測
-        function getBrowserInfo() {
-            const ua = navigator.userAgent;
-            let browserName = "Unknown";
-            let fullVersion = "Unknown";
-
-            if (ua.indexOf("Edg") > -1) {
-                browserName = "Edge";
-                fullVersion = ua.substring(ua.indexOf("Edg") + 4).split(" ")[0];
-            } else if (ua.indexOf("Chrome") > -1 && ua.indexOf("Edge") === -1 && ua.indexOf("OPR") === -1) {
-                browserName = "Chrome";
-                fullVersion = ua.substring(ua.indexOf("Chrome") + 7).split(" ")[0];
-            } else if (ua.indexOf("Firefox") > -1) {
-                browserName = "Firefox";
-                fullVersion = ua.substring(ua.indexOf("Firefox") + 8).split(" ")[0];
-            } else if (ua.indexOf("Safari") > -1 && ua.indexOf("Chrome") === -1) {
-                browserName = "Safari";
-                fullVersion = ua.substring(ua.indexOf("Version") + 8).split(" ")[0];
-            } else if (ua.indexOf("MSIE") > -1) {
-                browserName = "Internet Explorer";
-                fullVersion = ua.substring(ua.indexOf("MSIE") + 5).split(";")[0];
-            } else if (ua.indexOf("Trident") > -1) {
-                browserName = "Internet Explorer";
-                const rvIndex = ua.indexOf("rv:");
-                if (rvIndex > -1) {
-                    fullVersion = ua.substring(rvIndex + 3).split(" ")[0];
-                }
-            } else if (ua.indexOf("OPR") > -1) {
-                browserName = "Opera";
-                fullVersion = ua.substring(ua.indexOf("OPR") + 4).split(" ")[0];
-            }
-
-            return { browserName, fullVersion };
-        }
         $(document).ready(function () {
             const userAgent = navigator.userAgent;
 
-            // 檢測瀏覽器版本的正則表達式
+            // 修正版的 versionCheck，確保能正確解析版本號
             const versionCheck = (regex) => {
                 const match = userAgent.match(regex);
                 return match && match[1] ? parseFloat(match[1]) : null;
             };
+
+            // 判斷是否為行動裝置
+            const isMobile = /Android|iPhone|iPad|iPod/i.test(userAgent);
 
             // 判斷各瀏覽器版本
             const isEdge = userAgent.includes("Edg") && versionCheck(/Edg\/(\d+(\.\d+)?)/) < 108;
@@ -330,6 +300,11 @@
                 !userAgent.includes("Edg") &&
                 versionCheck(/Version\/(\d+(\.\d+)?)/) < 16.4;
 
+            // 修正：如果是手機版 Chrome，通常版本號高於 100，但部分 userAgent 格式不同，因此加入額外判斷
+            if (isMobile && isChrome && versionCheck(/Chrome\/(\d+(\.\d+)?)/) >= 108) {
+                return; // **行動版 Chrome 版本正確時，不應顯示警告**
+            }
+
             // 根據條件顯示對應的警告
             if (isFirefox) {
                 alert("您的瀏覽器不支援部分網頁效果，建議使用其他瀏覽器以獲得更好的使用體驗！");
@@ -337,6 +312,7 @@
                 alert("您的瀏覽器版本可能不支援部分網頁效果，建議更新至最新版本以獲得更好的使用體驗！");
             }
         });
+
 
         // sticky 選單
         $(document).ready(function () {
