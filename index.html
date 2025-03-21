@@ -280,24 +280,28 @@
         $(document).ready(function () {
             const userAgent = navigator.userAgent;
 
-            // 修正版的 versionCheck，確保能正確解析版本號
+            // 取得版本號的函式
             const versionCheck = (regex) => {
                 const match = userAgent.match(regex);
                 return match && match[1] ? parseFloat(match[1]) : null;
             };
 
-            // 判斷是否為行動裝置
+            // **判斷是否為行動裝置**
             const isMobile = /Android|iPhone|iPad|iPod/i.test(userAgent);
             
             // **判斷是否為 iOS 裝置**
             const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
             
-            // **判斷是否為 iOS 上的 Chrome** (因為 iOS 版 Chrome 其實是 Safari 核心)
+            // **判斷是否為 iOS 上的 Chrome**
             const isIOSChrome = isIOS && /CriOS/i.test(userAgent);
 
-            // 判斷各瀏覽器版本
+            // **判斷是否為 Android 版 Chrome**
+            const chromeVersion = versionCheck(/Chrome\/(\d+(\.\d+)?)/);
+            const isAndroidChrome = isMobile && userAgent.includes("Chrome") && !userAgent.includes("Edg") && !userAgent.includes("OPR");
+
+            // **判斷是否為特定瀏覽器**
             const isEdge = userAgent.includes("Edg") && versionCheck(/Edg\/(\d+(\.\d+)?)/) < 108;
-            const isChrome = userAgent.includes("Chrome") && !userAgent.includes("Edg") && !userAgent.includes("OPR") && versionCheck(/Chrome\/(\d+(\.\d+)?)/) < 108;
+            const isChrome = isAndroidChrome && chromeVersion < 133; // 低於 133 的 Android Chrome 會跳警告
             const isFirefox = userAgent.includes("Firefox");
             const isOpera = userAgent.includes("OPR") && versionCheck(/OPR\/(\d+(\.\d+)?)/) < 94;
             const isSafari =
@@ -306,17 +310,12 @@
                 !userAgent.includes("Edg") &&
                 versionCheck(/Version\/(\d+(\.\d+)?)/) < 16.4;
 
-            // **如果是 iOS 版 Chrome，直接 return，不顯示警告**
+            // **如果是 iOS 版 Chrome，完全不警告**
             if (isIOSChrome) {
                 return;
             }
 
-            // 修正：如果是 Android 版 Chrome 版本 >= 108，不警告
-            if (isMobile && isChrome && versionCheck(/Chrome\/(\d+(\.\d+)?)/) >= 108) {
-                return;
-            }
-
-            // 根據條件顯示對應的警告
+            // **根據條件顯示對應的警告**
             if (isFirefox) {
                 alert("您的瀏覽器不支援部分網頁效果，建議使用其他瀏覽器以獲得更好的使用體驗！");
             } else if (isChrome || isEdge || isOpera || isSafari) {
