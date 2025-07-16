@@ -19,7 +19,7 @@
     <meta name="format-detection" content="telephone=no" />
 
     <!-- iOS Safari Set Up -->
-     <!-- iOS app 縮圖 -->
+    <!-- iOS app 縮圖 -->
     <link rel="apple-touch-icon" href="images/apple-touch-icon.jpg" />
     <!-- 使用全屏顯示 -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -27,13 +27,45 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
     <!-- Swiper Carousel -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- google icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-
+    
     <!-- css 樣式表 -->
     <link rel="stylesheet" href="css/styles.css" />
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-72GBXXCTLX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); } gtag('js', new Date());
+        gtag('config', 'G-72GBXXCTLX');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start':
+
+                    new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+
+        })(window, document, 'script', 'dataLayer', 'GTM-PGVSH83F');
+    </script>
 </head>
 <body>
     <section id="keyvision">
@@ -661,5 +693,10 @@
           },
         });
     </script>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGVSH83F" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
 </body>
 </html>    
