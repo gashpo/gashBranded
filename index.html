@@ -98,36 +98,7 @@
             <h2>打造泛娛樂生態圈，聚焦數位連結<span>，</span><br>無界想像新體驗！</h2>
             <p>擁有網銀國際與遊戲橘子的支持，將整合兩大集團資源，創造一個更開放便利的數位娛樂生態系，降低消費門檻，讓娛樂更容易觸手可及。</p>
         </div>
-        <!-- <div class="content">
-            <div class="timeline"><img src="images/history.png"></div>
-            <ul class="thumbs">
-                <li class="active">
-                    <div><span></span></div>
-                    2000
-                </li>
-                <li>
-                    <div><span></span></div>
-                    2002
-                </li>
-                <li>
-                    <div><span></span></div>
-                    2005
-                </li>
-                <li>
-                    <div><span></span></div>
-                    2011
-                </li>
-                <li>
-                    <div><span></span></div>
-                    2015
-                </li>
-                <li>
-                    <div><span></span></div>
-                    2024
-                </li>
-            </ul>
-        </div> -->
-        <div class="content_new">
+        <div class="content">
             <ul class="timeline">
                 <li id="y-2000" class="y2000 active">
                     <h5>2000</h5>
@@ -447,181 +418,91 @@
         });
 
         // history 橫向捲軸
-        $(document).ready(function () {
-            /*
-                // history 點擊連動時間軸
-                const timeline = $('.timeline img'); // 取得 timeline 的 img
-                const liElements = $('.thumbs li');
-                const liCount = liElements.length; // 獲取 <li> 的數量
+        $(document).ready(function() {
+    const timeline = $(".timeline");
+    const thumbs = $(".thumbs li");
+    const $y2024Lis = $(".timeline li.y2024");
+    const $thumb2024 = $(".thumbs li[for='y2024']");
 
-                // 使用 naturalWidth 獲取 img 的實際寬度
-                const timelineWidth = timeline[0].naturalWidth;
-                const containerWidth = timeline.parent().width(); // 容器的寬度
-                const maxOffset = timelineWidth - containerWidth; // timeline 可移動的最大範圍
+    // 點擊 thumbs
+    thumbs.on("click", function() {
+        thumbs.removeClass("active");
+        $(this).addClass("active");
 
-                // 初始 customOffsets 設定，暫時用 maxOffset
-                let customOffsets = [0, 1000, 1850, 2400, 3100, maxOffset]; // 依據需求自訂位移數值
+        var forClass = $(this).attr("for");
+        var $target = $(".timeline li." + forClass).first();
+        if ($target.length === 0) return;
 
-                // 更新 customOffsets 根據裝置寬度
-                function updateCustomOffsets() {
-                    const windowWidth = window.innerWidth;
+        var timelineScroll = timeline.scrollLeft();
+        var timelineOffset = timeline.offset().left;
+        var targetOffset = $target.offset().left;
+        var timelineWidth = timeline.width();
+        var targetWidth = $target.outerWidth();
 
-                    if (windowWidth < 992) {
-                        customOffsets[0] = 500; // 小於 992 時，第一個位移改為 500
-                        customOffsets[customOffsets.length - 1] = Math.max(maxOffset - 150, 0); // 確保位移值不為負數
-                    } else {
-                        customOffsets[0] = 0; // 大於等於 992 時，第一個位移為 0
-                        customOffsets[customOffsets.length - 1] = maxOffset; // 最後一個位移為 maxOffset
-                    }
-                }
-
-                // 設定每個 <li> 的點擊事件
-                liElements.click(function () {
-                    // 點擊時更新 customOffsets
-                    updateCustomOffsets();
-
-                    const index = $(this).index(); // 取得目前點擊的 <li> 的索引
-                    const offset = customOffsets[index]; // 根據索引取得對應的位移數值
-
-                    // 確保 offset 存在，避免無效點擊
-                    if (offset !== undefined) {
-                        timeline.css('transform', `translateX(-${offset}px)`); // 設置 .timeline 的 transform 屬性
-                    }
-
-                    // 移除其他 <li> 的 .active，並為當前點擊的 <li> 增加 .active
-                    liElements.removeClass('active');
-                    $(this).addClass('active');
-                });
-
-                // 當畫面尺寸改變時，動態更新 customOffsets
-                $(window).resize(updateCustomOffsets);
-            */
-
-            const timeline = $(".timeline");
-            const thumbs = $(".thumbs li");
-
-            // 設定 timeline 的滑鼠拖移事件
-            let isMouseDown = false; // 記錄是否按下鼠標
-            let startX = 0; // 記錄鼠標按下的 X 位置
-            let scrollLeft = 0; // 記錄 timeline 當前的滾動位置
-
-            timeline.css('cursor', 'grab'); // 設置為可拖動狀態
-            // 當鼠標按下時，開始拖動
-            timeline.on("mousedown", function (e) {
-                isMouseDown = true;
-                startX = e.pageX; // 記錄按下的 X 位置
-                scrollLeft = timeline.scrollLeft(); // 記錄當前滾動位置
-                timeline.css("cursor", "grabbing"); // 顯示拖動光標
-            });
-            // 當鼠標移動時，更新 timeline 的滾動位置
-            timeline.on("mousemove", function (e) {
-                if (!isMouseDown) return; // 如果鼠標沒按下，不做任何操作
-                const diffX = e.pageX - startX; // 計算拖動的距離
-                timeline.scrollLeft(scrollLeft - diffX); // 更新滾動位置
-            });
-            // 當鼠標放開時，停止拖動
-            timeline.on("mouseup", function () {
-                isMouseDown = false;
-                timeline.css("cursor", "grab"); // 恢復為可抓取狀態
-            });
-            // 當鼠標離開時，也停止拖動
-            timeline.on("mouseleave", function () {
-                if (isMouseDown) {
-                    isMouseDown = false;
-                    timeline.css("cursor", "grab"); // 恢復為可抓取狀態
-                }
-            });
-
-            // 幫 .thumbs 增加 .active
-            function updateActiveState() {
-                const $contentNew = $('.content_new'); // 獲取 .content_new 元素
-                const contentRightEdge = $contentNew.offset().left + $contentNew.outerWidth(); // 計算 .content_new 的最右邊位置
-                const contentLeftEdge = $contentNew.offset().left; // 計算 .content_new 的左邊位置
-
-                $('.timeline li').each(function () {
-                    const $item = $(this);
-                    const itemLeftEdge = $item.offset().left; // 獲取 <li> 的左邊位置
-                    const itemRightEdge = itemLeftEdge + $item.outerWidth(); // 獲取 <li> 的右邊位置
-
-                    // 判斷 .timeline > li 超過畫面時移除 .active
-                    if (contentRightEdge - itemLeftEdge <= 50 || itemRightEdge - contentLeftEdge <= -100) {
-                        $item.removeClass('active');
-                    } else {
-                        $item.addClass('active');
-                        const itemClass = $item.attr('class');
-
-                        if (itemClass) {
-                            $('.thumbs li').each(function () {
-                                const $thumbItem = $(this);
-
-                                // 比對 .thumbs <li> 的 for 屬性和 .timeline <li> 的 class 名稱，相符時添加 active，否則移除 active
-                                const thumbFor = $thumbItem.attr('for');
-                                if (thumbFor && itemClass.includes(thumbFor)) {
-                                    $thumbItem.addClass('active');
-                                } else {
-                                    $thumbItem.removeClass('active');
-                                }
-                            });
-                        }
-                        
-                        // 檢查 .timeline 是否在最左邊
-                        if ($('.timeline').scrollLeft() === 0) {
-                            // 如果捲軸在最左邊，將 .thumbs 的第一個 <li> 設為 active
-                            $('.thumbs li').first().addClass('active');
-                            // 移除其他 <li> 的 .active
-                            $('.thumbs li').not(':first').removeClass('active');
-                        }
-                    }
-                });
+        // 捲動到指定 li 中心
+        var scrollTo =
+            timelineScroll +
+            (targetOffset - timelineOffset) -
+            (timelineWidth / 2 - targetWidth / 2);
+        timeline.animate({ scrollLeft: scrollTo }, 500, function() {
+            if(forClass === 'y2024') {
+                setActiveY2024();
+            } else {
+                updateActiveState();
             }
+        });
+    });
 
-            // 確保在頁面滾動或 resize 時觸發更新
-            $(window).on('scroll resize', updateActiveState);
+    // 核心函式，滾動時自動偵測 active
+    function updateActiveState() {
+        var maxScroll = timeline[0].scrollWidth - timeline.width();
+        var currentScroll = timeline.scrollLeft();
+        // 若在最右 800px 內，自動高亮所有 .y2024
+        if (currentScroll >= maxScroll - 800) {
+            setActiveY2024();
+            return;
+        }
 
-
-            // 當滾動 .timeline 時觸發檢查
-            timeline.on("scroll", updateActiveState);
-            updateActiveState(); // 初始化檢查
-
-            // 點擊 .thumbs 中的項目時 .timeline 滑動到相對應的 <li>
-            const content_center = ($(".content_new").width() / 2);
-            const y2000_offset = 0;
-            const y2002_offset = ($(".timeline .y2002").first().offset().left - content_center);
-            const y2005_offset = ($(".timeline .y2005").first().offset().left - content_center);
-            const y2011_offset = ($(".timeline .y2011").first().offset().left - content_center);
-            const y2015_offset = ($(".timeline .y2015").first().offset().left - content_center);
-            const y2024_offset = $(".timeline .y2024").first().offset().left;
-
-            thumbs.on("click", function() {
-                const targetLi = $(this).attr("for"); // 取得對應的 id
-
-                if (targetLi == "y2000") {
-                    timeline.animate({
-                        scrollLeft: y2000_offset
-                    }, 500);
-                } else if (targetLi == "y2002") {
-                    timeline.animate({
-                        scrollLeft: y2002_offset + 200
-                    }, 500);
-                } else if (targetLi == "y2005") {
-                    timeline.animate({
-                        scrollLeft: y2005_offset
-                    }, 500);
-                } else if (targetLi == "y2011") {
-                    timeline.animate({
-                        scrollLeft: y2011_offset + 150
-                    }, 500);
-                } else if (targetLi == "y2015") {
-                    timeline.animate({
-                        scrollLeft: y2015_offset
-                    }, 500);
-                } else if (targetLi == "y2024") {
-                    timeline.animate({
-                        scrollLeft: y2024_offset
-                    }, 500);
+        // 否則照中心點判斷高亮單一 li
+        var timelineLeft = timeline.offset().left;
+        var timelineCenter = timelineLeft + timeline.width() / 2;
+        var closestLi = null, minDist = Infinity;
+        $(".timeline li").each(function() {
+            var $li = $(this);
+            var liCenter = $li.offset().left + $li.outerWidth() / 2;
+            var dist = Math.abs(liCenter - timelineCenter);
+            if (dist < minDist) {
+                minDist = dist;
+                closestLi = $li;
+            }
+        });
+        if (closestLi) {
+            $(".timeline li").removeClass("active");
+            $(closestLi).addClass("active");
+            var classList = closestLi.attr("class").split(/\s+/);
+            thumbs.each(function() {
+                var $thumb = $(this);
+                if ($thumb.attr("for") && classList.indexOf($thumb.attr("for")) !== -1) {
+                    thumbs.removeClass("active");
+                    $thumb.addClass("active");
                 }
             });
-        });
+        }
+    }
+
+    // 高亮所有 .y2024 與 thumbs 2024
+    function setActiveY2024() {
+        $(".timeline li").removeClass("active");
+        thumbs.removeClass("active");
+        $y2024Lis.addClass("active");
+        $thumb2024.addClass("active");
+    }
+
+    timeline.on("scroll", updateActiveState);
+    $(window).on("resize", updateActiveState);
+    setTimeout(updateActiveState, 10);
+});
+
     </script>
 
     <!-- Swiper Carousel -->
