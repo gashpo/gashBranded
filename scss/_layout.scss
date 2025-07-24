@@ -17,7 +17,6 @@
   background-color: color(primary-500);
   background-image: url(../images/G.svg);
   background-repeat: no-repeat;
-  // background-size: 53svw;
   background-size: 115svh;
   background-position: left -15svw top -5svh;
   color: color(gray-0);
@@ -43,10 +42,12 @@
       font-size: px(80);
       font-weight: fontW(Medium);
       margin-bottom: px(40);
+      color: color(gray-0);
     }
 
     p {
       font-size: px(20);
+      color: color(gray-0);
     }
   }
 

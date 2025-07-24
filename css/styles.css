@@ -350,9 +350,11 @@ button.btn-white, .button.btn-white {
   font-size: 5rem;
   font-weight: 500;
   margin-bottom: 2.5rem;
+  color: #ffffff;
 }
 #keyvision .title p {
   font-size: 1.25rem;
+  color: #ffffff;
 }
 #keyvision button {
   position: absolute;
