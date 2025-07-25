@@ -133,17 +133,14 @@ $font-family: (
 p,
 span {
   @include fontRWD(body1);
-  color: color(gray-600);
 }
 h1 {
   @include fontRWD(h1);
   margin-bottom: px(12);
-  color: color(gray-850);
 }
 h2 {
   @include fontRWD(h2);
   margin-bottom: px(12);
-  color: color(gray-850);
 }
 h3 {
   @include fontRWD(h3);
